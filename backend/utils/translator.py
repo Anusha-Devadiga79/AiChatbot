@@ -1,10 +1,10 @@
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 import json
 import os
 
 class MultiLanguageSupport:
     def __init__(self):
-        self.translator = Translator()
+        self.translator = GoogleTranslator(source='auto', target='en')
         self.supported_languages = {
             'en': 'English',
             'es': 'Spanish',
@@ -75,8 +75,8 @@ class MultiLanguageSupport:
             if source_lang:
                 result = self.translator.translate(text, src=source_lang, dest=target_lang)
             else:
-                result = self.translator.translate(text, dest=target_lang)
-            return result.text
+                translated = GoogleTranslator(source='auto', target=target_lang).translate(text)
+        return translated
         except Exception as e:
             print(f"Translation error: {e}")
             return text  # Return original text if translation fails

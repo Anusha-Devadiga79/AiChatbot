@@ -1,5 +1,5 @@
 // Redirect if already logged in
-if (getToken()) window.location.href = "/frontend/pages/dashboard.html";
+if (getToken()) window.location.href = "/frontend/dashboard.html";
 
 function switchTab(tab) {
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -55,7 +55,7 @@ async function handleLogin(e) {
 
   setToken(res.data.token);
   setUser(res.data.user);
-  window.location.href = "/frontend/pages/dashboard.html";
+  window.location.href = "/frontend/dashboard.html";
 }
 
 async function handleRegister(e) {
@@ -91,5 +91,5 @@ async function handleRegister(e) {
 
   setToken(res.data.token);
   setUser(res.data.user);
-  window.location.href = "/frontend/pages/dashboard.html";
+  window.location.href = "/frontend/dashboard.html";
 }

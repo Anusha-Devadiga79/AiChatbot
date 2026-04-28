@@ -574,7 +574,7 @@ async function deleteAccount() {
   if (!confirm("Are you sure you want to delete your account? This cannot be undone.")) return;
   if (!confirm("This will permanently delete all your data. Continue?")) return;
   const res = await User.delete();
-  if (res?.ok) { removeToken(); window.location.href = "/frontend/pages/index.html"; }
+  if (res?.ok) { removeToken(); window.location.href = "/frontend/index.html"; }
   else showToast(res?.data?.error || "Failed to delete account", "error");
 }
 

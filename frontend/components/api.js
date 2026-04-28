@@ -41,7 +41,7 @@ async function apiRequest(endpoint, options = {}) {
 
     if (res.status === 401) {
       removeToken();
-      window.location.href = "/pages/index.html";
+      window.location.href = "/index.html";
       return null;
     }
     return { ok: res.ok, status: res.status, data };
@@ -126,13 +126,13 @@ function showToast(message, type = "info") {
 // ===== LOGOUT =====
 function logout() {
   removeToken();
-  window.location.href = "/pages/index.html";
+  window.location.href = "/index.html";
 }
 
 // ===== AUTH GUARD =====
 function requireAuth() {
   if (!getToken()) {
-    window.location.href = "/pages/index.html";
+    window.location.href = "/index.html";
     return false;
   }
   return true;

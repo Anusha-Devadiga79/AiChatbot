@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - HealthBot AI</title>
+  <link rel="stylesheet" href="../components/styles.css"/>
+  <link rel="stylesheet" href="../components/admin.css"/>
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <span class="brand-icon">🏥</span>
+        <span class="brand-name">HealthBot Admin</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" onclick="showAdminSection('overview')" data-section="overview">
+          <span class="nav-icon">📊</span><span class="nav-label">Overview</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showAdminSection('users')" data-section="users">
+          <span class="nav-icon">👥</span><span class="nav-label">Users</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="dashboard.html" class="btn-logout">← Back to App</a>
+        <button class="btn-logout" onclick="logout()">🚪 Logout</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <!-- Overview -->
+      <section id="admin-section-overview" class="admin-section active">
+        <h2>📊 System Overview</h2>
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card loading">Loading...</div>
+        </div>
+      </section>
+
+      <!-- Users -->
+      <section id="admin-section-users" class="admin-section">
+        <div class="section-header">
+          <h2>👥 All Users</h2>
+          <button class="btn-primary-sm" onclick="loadAdminUsers()">🔄 Refresh</button>
+        </div>
+        <div class="table-wrapper">
+          <table class="admin-table" id="usersTable">
+            <thead>
+              <tr>
+                <th>ID</th><th>Username</th><th>Email</th><th>Age</th><th>Gender</th><th>Joined</th><th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="usersTableBody">
+              <tr><td colspan="7" class="loading-state">Loading users...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="../components/api.js"></script>
+  <script src="../components/admin.js"></script>
+</body>
+</html>

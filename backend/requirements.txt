@@ -14,3 +14,4 @@
     pytesseract==0.3.10
     bcrypt==4.0.1
     deep-translator==1.11.4
+    gunicorn==21.2.0

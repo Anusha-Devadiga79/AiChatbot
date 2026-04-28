@@ -291,7 +291,8 @@ def get_chats():
         query = db.table("chats").select("*").eq("user_id", user_id).order("timestamp", desc=True)
 
         if search:
-            query = query.ilike("message", f"%{search}%")
+            # Search in both message and response columns
+            query = query.or_(f"message.ilike.%{search}%,response.ilike.%{search}%")
 
         result = query.range(offset, offset + limit - 1).execute()
         

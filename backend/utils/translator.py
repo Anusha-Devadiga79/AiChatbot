@@ -38,8 +38,4 @@ class MultiLanguageSupport:
 
 
 # global instance
-<<<<<<< HEAD
 translator = MultiLanguageSupport()
-=======
-translator = MultiLanguageSupport()
->>>>>>> 2a93e67961b3e47644914b179d24560e794f2c90

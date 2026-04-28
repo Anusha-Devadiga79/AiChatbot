@@ -1,0 +1,27 @@
+# Environment variables - NEVER commit these
+backend/.env
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/venv/
+venv/
+*.egg-info/
+
+# Uploads
+backend/uploads/
+uploads/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Zip files
+*.zip

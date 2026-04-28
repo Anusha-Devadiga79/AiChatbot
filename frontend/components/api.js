@@ -1,5 +1,5 @@
 // ===== API CONFIGURATION =====
-const API_BASE = "http://localhost:5000/api";
+const API_BASE = "https://aichatbot-2-vsq7.onrender.com/api";
 
 function getToken() {
   return localStorage.getItem("healthbot_token");
@@ -41,7 +41,7 @@ async function apiRequest(endpoint, options = {}) {
 
     if (res.status === 401) {
       removeToken();
-      window.location.href = "/frontend/pages/index.html";
+      window.location.href = "/pages/index.html";
       return null;
     }
     return { ok: res.ok, status: res.status, data };
@@ -126,13 +126,13 @@ function showToast(message, type = "info") {
 // ===== LOGOUT =====
 function logout() {
   removeToken();
-  window.location.href = "/frontend/pages/index.html";
+  window.location.href = "/pages/index.html";
 }
 
 // ===== AUTH GUARD =====
 function requireAuth() {
   if (!getToken()) {
-    window.location.href = "/frontend/pages/index.html";
+    window.location.href = "/pages/index.html";
     return false;
   }
   return true;

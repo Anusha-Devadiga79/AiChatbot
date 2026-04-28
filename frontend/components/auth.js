@@ -1,5 +1,5 @@
 // Redirect if already logged in
-if (getToken()) window.location.href = "/frontend/dashboard.html";
+if (getToken()) window.location.href = "/dashboard.html";
 
 function switchTab(tab) {
   document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
@@ -7,7 +7,7 @@ function switchTab(tab) {
   document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add("active");
   document.getElementById(tab === "login" ? "loginForm" : "registerForm").classList.remove("hidden");
 }
-
+ 
 function togglePassword(id) {
   const input = document.getElementById(id);
   input.type = input.type === "password" ? "text" : "password";
@@ -55,7 +55,7 @@ async function handleLogin(e) {
 
   setToken(res.data.token);
   setUser(res.data.user);
-  window.location.href = "/frontend/dashboard.html";
+  window.location.href = "/dashboard.html";
 }
 
 async function handleRegister(e) {
@@ -91,5 +91,5 @@ async function handleRegister(e) {
 
   setToken(res.data.token);
   setUser(res.data.user);
-  window.location.href = "/frontend/dashboard.html";
+  window.location.href = "/dashboard.html";
 }
